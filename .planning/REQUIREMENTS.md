@@ -102,30 +102,30 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ROLE-02 | Phase 1 | Pending |
 | ROLE-03 | Phase 1 | Pending |
 | ROLE-04 | Phase 1 | Pending |
-| PLAC-01 | TBD | Pending |
-| PLAC-02 | TBD | Pending |
-| PLAC-03 | TBD | Pending |
-| PLAC-04 | TBD | Pending |
-| PLAC-05 | TBD | Pending |
-| EVNT-01 | TBD | Pending |
-| EVNT-02 | TBD | Pending |
-| EVNT-03 | TBD | Pending |
-| EVNT-04 | TBD | Pending |
-| EVNT-05 | TBD | Pending |
-| FEED-01 | TBD | Pending |
-| FEED-02 | TBD | Pending |
-| FEED-03 | TBD | Pending |
-| FEED-04 | TBD | Pending |
-| RATE-01 | TBD | Pending |
-| RATE-02 | TBD | Pending |
-| RATE-03 | TBD | Pending |
-| RATE-04 | TBD | Pending |
+| PLAC-01 | Phase 2 | Pending |
+| PLAC-02 | Phase 2 | Pending |
+| PLAC-03 | Phase 2 | Pending |
+| PLAC-04 | Phase 2 | Pending |
+| PLAC-05 | Phase 2 | Pending |
+| EVNT-01 | Phase 2 | Pending |
+| EVNT-02 | Phase 2 | Pending |
+| EVNT-03 | Phase 2 | Pending |
+| EVNT-04 | Phase 2 | Pending |
+| EVNT-05 | Phase 2 | Pending |
+| FEED-01 | Phase 3 | Pending |
+| FEED-02 | Phase 3 | Pending |
+| FEED-03 | Phase 3 | Pending |
+| FEED-04 | Phase 3 | Pending |
+| RATE-01 | Phase 4 | Pending |
+| RATE-02 | Phase 4 | Pending |
+| RATE-03 | Phase 4 | Pending |
+| RATE-04 | Phase 4 | Pending |
 
 **Coverage:**
 - v1 requirements: 26 total
-- Mapped to phases: 8
-- Unmapped: 18 ⚠️ (will be resolved by roadmapper)
+- Mapped to phases: 26
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-13*
-*Last updated: 2026-03-13 after initial definition*
+*Last updated: 2026-03-13 after roadmap creation*
