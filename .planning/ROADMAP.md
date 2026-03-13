@@ -29,13 +29,14 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. A user who has made 3+ GPS-verified posts in a city is treated as a local in that city, not in cities where they have not posted
   4. Any authenticated user can rate/review content (role enforcement is in place for post gating)
   5. A user's public profile page exists and shows their contributions
-**Plans**: TBD
+**Plans**: 5 plans
 
 Plans:
-- [ ] 01-01: Project scaffolding (Next.js 16, Supabase, Drizzle, Tailwind v4, HTTPS baseline)
-- [ ] 01-02: Auth flows (registration, email verification, login, password reset, session persistence)
-- [ ] 01-03: Per-city role model (user_city_roles schema, behavior-based local status, role-gating middleware)
-- [ ] 01-04: User profile page, soft-delete data model, and report/flag mechanism
+- [ ] 01-00-PLAN.md — Test infrastructure and failing stubs (Wave 0, Nyquist prerequisite)
+- [ ] 01-01-PLAN.md — Next.js 16 scaffold, Drizzle schema (all 5 tables), Supabase clients, env validation
+- [ ] 01-02-PLAN.md — Auth flows: registration, email verification, login, password reset, middleware
+- [ ] 01-03-PLAN.md — Per-city role model: isUserLocalInCity query, requireAuth guards, Paris seed data
+- [ ] 01-04-PLAN.md — Public profile page, auth layout, error page; human verification checkpoint
 
 ### Phase 2: Content Creation
 **Goal**: GPS-verified locals can post places and community events, with photo uploads, on a single unified posts table
@@ -94,7 +95,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/4 | Not started | - |
+| 1. Foundation | 0/5 | Planned | - |
 | 2. Content Creation | 0/4 | Not started | - |
 | 3. City Feed and Discovery | 0/4 | Not started | - |
 | 4. Ratings and Trust | 0/3 | Not started | - |
