@@ -52,6 +52,7 @@ Authentic, GPS-verified local knowledge that tourists can trust — because ever
 | GPS verification at post time | Ensures authenticity without ID verification overhead | — Pending |
 | Feed-first city page | Shows recency and activity; builds sense of living community | — Pending |
 | Web-first | Fastest path to validate the concept | — Pending |
+| Launch city: Paris, France | World's most visited city (~100M tourists/year); rich mix of restaurants, cafés, museums, markets, local events — ideal seed city for content density | — Pending |
 
 ---
-*Last updated: 2026-03-13 after initialization*
+*Last updated: 2026-03-13 after launch city decision*
