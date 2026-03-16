@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: planning
-stopped_at: Completed 01-foundation plan 01-00-PLAN.md
-last_updated: "2026-03-16T14:57:24.128Z"
-last_activity: 2026-03-13 — Roadmap created; all 26 v1 requirements mapped to 4 phases
+status: executing
+stopped_at: Completed 01-foundation plan 01-01-PLAN.md
+last_updated: "2026-03-16T15:03:40.321Z"
+last_activity: "2026-03-16 — Plan 01-00 complete: Vitest config and test stubs (Wave 0)"
 progress:
   total_phases: 4
   completed_phases: 0
   total_plans: 5
-  completed_plans: 1
+  completed_plans: 2
   percent: 20
 ---
 
@@ -26,27 +26,27 @@ See: .planning/PROJECT.md (updated 2026-03-13)
 ## Current Position
 
 Phase: 1 of 4 (Foundation)
-Plan: 1 of 4 in current phase
+Plan: 2 of 4 in current phase
 Status: In Progress
-Last activity: 2026-03-16 — Plan 01-00 complete: Vitest config and test stubs (Wave 0)
+Last activity: 2026-03-16 — Plan 01-01 complete: Next.js 16 scaffold, Drizzle schema, Supabase clients
 
-Progress: [██░░░░░░░░] 20%
+Progress: [████░░░░░░] 40%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 1
-- Average duration: 2 min
-- Total execution time: 0.03 hours
+- Total plans completed: 2
+- Average duration: 4.5 min
+- Total execution time: 0.15 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01-foundation | 1 | 2 min | 2 min |
+| 01-foundation | 2 | 9 min | 4.5 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-00 (2 min)
+- Last 5 plans: 01-00 (2 min), 01-01 (7 min)
 - Trend: -
 
 *Updated after each plan completion*
@@ -65,6 +65,9 @@ Recent decisions affecting current work:
 - [Pre-Phase 1]: Leaflet + OpenStreetMap tiles (not Mapbox) for map view to avoid billing surprise
 - [Phase 01-foundation]: vitest.config.ts written before Next.js scaffold — incorporated naturally when plan 01-01 runs create-next-app
 - [Phase 01-foundation]: All test stubs use test.todo() with no src imports — ensures zero false positives before implementation
+- [Phase 01-foundation]: shadcn/ui v4 API: --style flag removed, --defaults flag uses base-nova preset (new-york equivalent)
+- [Phase 01-foundation]: Drizzle v0.45+ uses array syntax for table indexes: (table) => [...] not object syntax
+- [Phase 01-foundation]: NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY used over legacy ANON_KEY per current Supabase docs
 
 ### Pending Todos
 
@@ -72,13 +75,13 @@ None yet.
 
 ### Blockers/Concerns
 
-- [Research flag] shadcn/ui canary + Tailwind v4 compatibility should be verified before Phase 1 scaffolding
+- [RESOLVED] shadcn/ui stable + Tailwind v4 compatibility verified — shadcn v4 with --defaults uses base-nova (new-york equivalent)
 - [Research flag] Supabase PostGIS extension enablement and ST_DWithin with GEOGRAPHY type should be verified on a real instance before Phase 2 GPS work
 - [Research flag] Geofence radius (200m default) vs. GPS accuracy rejection threshold are two separate values — clarify during Phase 2 planning
 - [Research flag] Recurring event data model needs a design decision during Phase 2 planning
 
 ## Session Continuity
 
-Last session: 2026-03-16T14:57:24.125Z
-Stopped at: Completed 01-foundation plan 01-00-PLAN.md
+Last session: 2026-03-16T15:03:40.317Z
+Stopped at: Completed 01-foundation plan 01-01-PLAN.md
 Resume file: None

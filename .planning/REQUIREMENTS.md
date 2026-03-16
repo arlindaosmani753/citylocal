@@ -10,7 +10,7 @@
 - [ ] **AUTH-01**: User can create an account with email and password
 - [ ] **AUTH-02**: User receives email verification link after signup and must verify before posting
 - [ ] **AUTH-03**: User can request a password reset via email link
-- [ ] **AUTH-04**: User session persists across browser refresh
+- [x] **AUTH-04**: User session persists across browser refresh
 
 ### User Roles
 
@@ -97,7 +97,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | AUTH-01 | Phase 1 | Pending |
 | AUTH-02 | Phase 1 | Pending |
 | AUTH-03 | Phase 1 | Pending |
-| AUTH-04 | Phase 1 | Pending |
+| AUTH-04 | Phase 1 | Complete |
 | ROLE-01 | Phase 1 | Pending |
 | ROLE-02 | Phase 1 | Pending |
 | ROLE-03 | Phase 1 | Pending |
