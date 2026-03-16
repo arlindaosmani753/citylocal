@@ -54,7 +54,7 @@ describe('resetPassword Server Action', () => {
 
     const result = await resetPassword(formData)
 
-    expect(result?.error).toBeDefined()
+    expect(result && 'error' in result && result.error).toBeDefined()
     expect(mockResetPasswordForEmail).not.toHaveBeenCalled()
   })
 
@@ -67,7 +67,7 @@ describe('resetPassword Server Action', () => {
 
     const result = await resetPassword(formData)
 
-    expect(result?.success).toBe(true)
+    expect(result && 'success' in result && result.success).toBe(true)
   })
 })
 
@@ -109,7 +109,7 @@ describe('updatePassword Server Action', () => {
 
     const result = await updatePassword(formData)
 
-    expect(result?.error).toBeDefined()
+    expect(result && 'error' in result && result.error).toBeDefined()
     expect(mockUpdateUser).not.toHaveBeenCalled()
   })
 

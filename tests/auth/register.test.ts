@@ -50,7 +50,7 @@ describe('registerUser Server Action', () => {
 
     const result = await registerUser(formData)
 
-    expect(result?.error?.email).toBeDefined()
+    expect(result && 'error' in result && result.error?.email).toBeDefined()
     expect(mockSignUp).not.toHaveBeenCalled()
   })
 
@@ -63,7 +63,7 @@ describe('registerUser Server Action', () => {
 
     const result = await registerUser(formData)
 
-    expect(result?.error?.password).toBeDefined()
+    expect(result && 'error' in result && result.error?.password).toBeDefined()
     expect(mockSignUp).not.toHaveBeenCalled()
   })
 
@@ -76,7 +76,7 @@ describe('registerUser Server Action', () => {
 
     const result = await registerUser(formData)
 
-    expect(result?.error?.username).toBeDefined()
+    expect(result && 'error' in result && result.error?.username).toBeDefined()
     expect(mockSignUp).not.toHaveBeenCalled()
   })
 
@@ -89,7 +89,7 @@ describe('registerUser Server Action', () => {
 
     const result = await registerUser(formData)
 
-    expect(result?.error?.username).toBeDefined()
+    expect(result && 'error' in result && result.error?.username).toBeDefined()
     expect(mockSignUp).not.toHaveBeenCalled()
   })
 
@@ -131,8 +131,8 @@ describe('registerUser Server Action', () => {
 
     const result = await registerUser(formData)
 
-    expect(result?.error?._form).toBeDefined()
-    expect(result?.error?._form[0]).toContain('Email already registered')
+    expect(result && 'error' in result && result.error?._form).toBeDefined()
+    expect(result && 'error' in result && result.error?._form?.[0]).toContain('Email already registered')
   })
 
   test('AUTH-01: redirects to /verify-email on success', async () => {
