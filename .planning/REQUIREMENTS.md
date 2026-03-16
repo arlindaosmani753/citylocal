@@ -7,14 +7,14 @@
 
 ### Authentication
 
-- [ ] **AUTH-01**: User can create an account with email and password
-- [ ] **AUTH-02**: User receives email verification link after signup and must verify before posting
-- [ ] **AUTH-03**: User can request a password reset via email link
+- [x] **AUTH-01**: User can create an account with email and password
+- [x] **AUTH-02**: User receives email verification link after signup and must verify before posting
+- [x] **AUTH-03**: User can request a password reset via email link
 - [x] **AUTH-04**: User session persists across browser refresh
 
 ### User Roles
 
-- [ ] **ROLE-01**: User declares a home city when registering (self-declared local)
+- [x] **ROLE-01**: User declares a home city when registering (self-declared local)
 - [x] **ROLE-02**: User earns confirmed local status in a city after 3+ GPS-verified posts from that city
 - [x] **ROLE-03**: Any authenticated user can rate/review places and events they have visited
 - [ ] **ROLE-04**: User has a public profile page showing their contributions and average rating received
@@ -94,11 +94,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| AUTH-01 | Phase 1 | Pending |
-| AUTH-02 | Phase 1 | Pending |
-| AUTH-03 | Phase 1 | Pending |
+| AUTH-01 | Phase 1 | Complete |
+| AUTH-02 | Phase 1 | Complete |
+| AUTH-03 | Phase 1 | Complete |
 | AUTH-04 | Phase 1 | Complete |
-| ROLE-01 | Phase 1 | Pending |
+| ROLE-01 | Phase 1 | Complete |
 | ROLE-02 | Phase 1 | Complete |
 | ROLE-03 | Phase 1 | Complete |
 | ROLE-04 | Phase 1 | Pending |

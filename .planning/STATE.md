@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 01-foundation plan 01-03-PLAN.md
-last_updated: "2026-03-16T15:09:17.469Z"
-last_activity: "2026-03-16 — Plan 01-01 complete: Next.js 16 scaffold, Drizzle schema, Supabase clients"
+stopped_at: Completed 01-foundation plan 01-02-PLAN.md
+last_updated: "2026-03-16T15:13:37.384Z"
+last_activity: "2026-03-16 — Plan 01-03 complete: Role queries (isUserLocalInCity), server guards (requireAuth/requireLocalInCity), Paris seed"
 progress:
   total_phases: 4
   completed_phases: 0
   total_plans: 5
-  completed_plans: 3
+  completed_plans: 4
   percent: 60
 ---
 
@@ -51,6 +51,7 @@ Progress: [██████░░░░] 60%
 
 *Updated after each plan completion*
 | Phase 01-foundation P03 | 3 | 2 tasks | 5 files |
+| Phase 01-foundation P02 | 7 | 2 tasks | 19 files |
 
 ## Accumulated Context
 
@@ -72,6 +73,9 @@ Recent decisions affecting current work:
 - [Phase 01-foundation]: isUserLocalInCity reads isLocal column directly — verifiedPostCount threshold logic belongs to Phase 2 GPS verification
 - [Phase 01-foundation]: requireAuth uses getUser() not getSession() for server-side JWT validation per Supabase security best practice
 - [Phase 01-foundation]: Paris seed slug is paris-france matching Phase 3 URL pattern /cities/paris-france
+- [Phase 01-foundation]: Zod v4 uses z.infer<typeof schema> not schema._type for TypeScript inference
+- [Phase 01-foundation]: useActionState with Server Actions requires double cast (as unknown as) due to TypeScript narrowing
+- [Phase 01-foundation]: middleware.ts at project root — @/* alias maps to ./src/* only, so tests use relative import
 
 ### Pending Todos
 
@@ -86,6 +90,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-16T15:09:17.466Z
-Stopped at: Completed 01-foundation plan 01-03-PLAN.md
+Last session: 2026-03-16T15:13:37.381Z
+Stopped at: Completed 01-foundation plan 01-02-PLAN.md
 Resume file: None
