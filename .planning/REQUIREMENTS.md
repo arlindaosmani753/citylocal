@@ -17,7 +17,7 @@
 - [x] **ROLE-01**: User declares a home city when registering (self-declared local)
 - [x] **ROLE-02**: User earns confirmed local status in a city after 3+ GPS-verified posts from that city
 - [x] **ROLE-03**: Any authenticated user can rate/review places and events they have visited
-- [ ] **ROLE-04**: User has a public profile page showing their contributions and average rating received
+- [x] **ROLE-04**: User has a public profile page showing their contributions and average rating received
 
 ### Places
 
@@ -101,7 +101,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ROLE-01 | Phase 1 | Complete |
 | ROLE-02 | Phase 1 | Complete |
 | ROLE-03 | Phase 1 | Complete |
-| ROLE-04 | Phase 1 | Pending |
+| ROLE-04 | Phase 1 | Complete |
 | PLAC-01 | Phase 2 | Pending |
 | PLAC-02 | Phase 2 | Pending |
 | PLAC-03 | Phase 2 | Pending |

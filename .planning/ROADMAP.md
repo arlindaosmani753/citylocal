@@ -12,7 +12,7 @@ CityLocal builds in four phases that follow the hard dependency chain of the pro
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation** - Auth, per-city roles, soft-delete, and report mechanism — the prerequisite for everything
+- [x] **Phase 1: Foundation** - Auth, per-city roles, soft-delete, and report mechanism — the prerequisite for everything (completed 2026-03-16)
 - [ ] **Phase 2: Content Creation** - GPS-verified place and event posting on a unified posts table
 - [ ] **Phase 3: City Feed and Discovery** - Public city pages with feed, filters, search, and map
 - [ ] **Phase 4: Ratings and Trust** - Tourist reviews and rating aggregation close the two-sided market
@@ -95,7 +95,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 4/5 | In Progress|  |
+| 1. Foundation | 5/5 | Complete   | 2026-03-16 |
 | 2. Content Creation | 0/4 | Not started | - |
 | 3. City Feed and Discovery | 0/4 | Not started | - |
 | 4. Ratings and Trust | 0/3 | Not started | - |
