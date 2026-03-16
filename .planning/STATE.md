@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 01-foundation plan 01-01-PLAN.md
-last_updated: "2026-03-16T15:03:40.321Z"
-last_activity: "2026-03-16 — Plan 01-00 complete: Vitest config and test stubs (Wave 0)"
+stopped_at: Completed 01-foundation plan 01-03-PLAN.md
+last_updated: "2026-03-16T15:09:17.469Z"
+last_activity: "2026-03-16 — Plan 01-01 complete: Next.js 16 scaffold, Drizzle schema, Supabase clients"
 progress:
   total_phases: 4
   completed_phases: 0
   total_plans: 5
-  completed_plans: 2
-  percent: 20
+  completed_plans: 3
+  percent: 60
 ---
 
 # Project State
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-03-13)
 ## Current Position
 
 Phase: 1 of 4 (Foundation)
-Plan: 2 of 4 in current phase
+Plan: 3 of 5 in current phase (next: 01-04)
 Status: In Progress
-Last activity: 2026-03-16 — Plan 01-01 complete: Next.js 16 scaffold, Drizzle schema, Supabase clients
+Last activity: 2026-03-16 — Plan 01-03 complete: Role queries (isUserLocalInCity), server guards (requireAuth/requireLocalInCity), Paris seed
 
-Progress: [████░░░░░░] 40%
+Progress: [██████░░░░] 60%
 
 ## Performance Metrics
 
@@ -50,6 +50,7 @@ Progress: [████░░░░░░] 40%
 - Trend: -
 
 *Updated after each plan completion*
+| Phase 01-foundation P03 | 3 | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -68,6 +69,9 @@ Recent decisions affecting current work:
 - [Phase 01-foundation]: shadcn/ui v4 API: --style flag removed, --defaults flag uses base-nova preset (new-york equivalent)
 - [Phase 01-foundation]: Drizzle v0.45+ uses array syntax for table indexes: (table) => [...] not object syntax
 - [Phase 01-foundation]: NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY used over legacy ANON_KEY per current Supabase docs
+- [Phase 01-foundation]: isUserLocalInCity reads isLocal column directly — verifiedPostCount threshold logic belongs to Phase 2 GPS verification
+- [Phase 01-foundation]: requireAuth uses getUser() not getSession() for server-side JWT validation per Supabase security best practice
+- [Phase 01-foundation]: Paris seed slug is paris-france matching Phase 3 URL pattern /cities/paris-france
 
 ### Pending Todos
 
@@ -82,6 +86,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-16T15:03:40.317Z
-Stopped at: Completed 01-foundation plan 01-01-PLAN.md
+Last session: 2026-03-16T15:09:17.466Z
+Stopped at: Completed 01-foundation plan 01-03-PLAN.md
 Resume file: None
