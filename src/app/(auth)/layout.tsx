@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 type Props = {
   children: ReactNode
@@ -7,15 +6,14 @@ type Props = {
 
 export default function AuthLayout({ children }: Props) {
   return (
-    <main className="flex min-h-svh items-center justify-center bg-background p-4">
-      <div className="w-full max-w-sm">
-        <div className="mb-6 flex justify-center">
-          <span className="text-2xl font-bold tracking-tight">CityLocal</span>
+    <div className="flex min-h-screen items-center justify-center bg-neutral-50 p-4">
+      <div className="w-full max-w-md">
+        <div className="mb-8 text-center">
+          <h1 className="text-2xl font-bold tracking-tight">CityLocal</h1>
+          <p className="text-sm text-muted-foreground">Community-powered city guide</p>
         </div>
-        <Card>
-          <CardContent className="pt-6">{children}</CardContent>
-        </Card>
+        {children}
       </div>
-    </main>
+    </div>
   )
 }

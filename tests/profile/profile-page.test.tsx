@@ -1,5 +1,5 @@
 import { describe, test, expect, vi, beforeEach } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render, screen, act } from '@testing-library/react'
 
 // Mock the db module — we test logic, not DB connection
 vi.mock('@/lib/db', () => ({
@@ -57,7 +57,9 @@ describe('Profile page (/profile/[username])', () => {
     ])
 
     const jsx = await ProfilePage({ params: Promise.resolve({ username: 'alice' }) })
-    render(jsx)
+    await act(async () => {
+      render(jsx)
+    })
 
     expect(screen.getByRole('heading', { name: /alice smith/i })).toBeTruthy()
   })
@@ -76,7 +78,9 @@ describe('Profile page (/profile/[username])', () => {
     ])
 
     const jsx = await ProfilePage({ params: Promise.resolve({ username: 'alice' }) })
-    render(jsx)
+    await act(async () => {
+      render(jsx)
+    })
 
     expect(screen.getByText(/paris/i)).toBeTruthy()
   })
@@ -95,7 +99,9 @@ describe('Profile page (/profile/[username])', () => {
     ])
 
     const jsx = await ProfilePage({ params: Promise.resolve({ username: 'bob' }) })
-    render(jsx)
+    await act(async () => {
+      render(jsx)
+    })
 
     expect(screen.getByText(/0 contributions/i)).toBeTruthy()
   })
