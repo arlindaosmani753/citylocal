@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: "Completed 01-04-PLAN.md (checkpoint: awaiting Supabase setup and Phase 1 flow verification)"
-last_updated: "2026-03-16T15:19:33.332Z"
+stopped_at: Completed 01-04-PLAN.md — Phase 1 Foundation complete
+last_updated: "2026-03-16T15:23:01.031Z"
 last_activity: "2026-03-16 — Plan 01-03 complete: Role queries (isUserLocalInCity), server guards (requireAuth/requireLocalInCity), Paris seed"
 progress:
   total_phases: 4
@@ -53,6 +53,7 @@ Progress: [██████░░░░] 60%
 | Phase 01-foundation P03 | 3 | 2 tasks | 5 files |
 | Phase 01-foundation P02 | 7 | 2 tasks | 19 files |
 | Phase 01-foundation P04 | 3 | 2 tasks | 6 files |
+| Phase 01-foundation P04 | 15 | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -78,6 +79,8 @@ Recent decisions affecting current work:
 - [Phase 01-foundation]: useActionState with Server Actions requires double cast (as unknown as) due to TypeScript narrowing
 - [Phase 01-foundation]: middleware.ts at project root — @/* alias maps to ./src/* only, so tests use relative import
 - [Phase 01-foundation]: ContributionsList is synchronous in Phase 1 — async RSC not supported by react-dom/client in tests; Phase 2 will refactor with real post query
+- [Phase 01-foundation]: ContributionsList is synchronous in Phase 1 — async RSC not supported by react-dom/client in tests; Phase 2 will refactor with real post query
+- [Phase 01-foundation]: ProfileHeader uses CSS initials fallback instead of shadcn Avatar — Avatar component not installed; avoids interactive shadcn CLI
 
 ### Pending Todos
 
@@ -92,6 +95,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-16T15:19:33.329Z
-Stopped at: Completed 01-04-PLAN.md (checkpoint: awaiting Supabase setup and Phase 1 flow verification)
+Last session: 2026-03-16T15:23:01.028Z
+Stopped at: Completed 01-04-PLAN.md — Phase 1 Foundation complete
 Resume file: None

@@ -64,7 +64,7 @@ completed: 2026-03-16
 - **Duration:** 3 min
 - **Started:** 2026-03-16T15:15:18Z
 - **Completed:** 2026-03-16T15:18:10Z
-- **Tasks:** 1 completed (1 pending checkpoint verification)
+- **Tasks:** 2 completed (Task 1 TDD + Task 2 checkpoint verified)
 - **Files modified:** 6
 
 ## Accomplishments
@@ -80,6 +80,7 @@ Each task was committed atomically:
 
 1. **Task 1 RED: Failing tests for profile page** - `d9ab212` (test)
 2. **Task 1 GREEN: Public profile page, auth layout, error page** - `60c7892` (feat)
+3. **Task 2: Phase 1 flow verification approved by user** - checkpoint approved
 
 ## Files Created/Modified
 - `src/app/profile/[username]/page.tsx` - Server Component; queries profiles+cities by username; notFound() on miss; generateMetadata export
@@ -141,7 +142,7 @@ Then verify the 6 flows listed in the checkpoint.
 - Profile page infrastructure complete — Phase 2 can add real post queries to ContributionsList
 - Auth layout ready for all 5 auth pages
 - All Phase 1 automated tests passing (38 tests, 7 test files)
-- Awaiting: user Supabase setup and manual flow verification (checkpoint Task 2)
+- All 6 Phase 1 manual flows verified and approved: registration, email verification, profile view, session persistence, password reset, auth redirect
 
 ---
 *Phase: 01-foundation*
