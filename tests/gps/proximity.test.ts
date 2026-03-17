@@ -42,8 +42,10 @@ describe('verifyGpsProximity (PLAC-02)', () => {
   test('passes longitude as first arg to ST_MakePoint (not latitude)', async () => {
     vi.mocked(db.execute).mockResolvedValueOnce([{ within_range: true }] as any)
     await verifyGpsProximity(48.8566, 2.3522, 10, 48.8566, 2.3522)
-    const callArg = vi.mocked(db.execute).mock.calls[0][0]
+    const callArg = vi.mocked(db.execute).mock.calls[0][0] as any
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     const sqlString = callArg.queryChunks
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
       ? callArg.queryChunks.map((c: any) => (typeof c === 'string' ? c : String(c.value ?? ''))).join(' ')
       : String(callArg)
     // The SQL should have lng (2.3522) before lat (48.8566) in the ST_MakePoint call

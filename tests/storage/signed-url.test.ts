@@ -25,7 +25,8 @@ describe('getSignedUploadUrl Server Action (PLAC-03)', () => {
 
   beforeEach(() => {
     vi.clearAllMocks()
-    vi.mocked(requireAuth).mockResolvedValue({ userId: mockUserId })
+    // requireAuth returns a Supabase User object — user.id is the identifier
+    vi.mocked(requireAuth).mockResolvedValue({ id: mockUserId } as any)
     vi.mocked(createClient).mockResolvedValue({ storage: mockStorage } as any)
     mockStorage.from.mockReturnValue(mockStorage)
   })
