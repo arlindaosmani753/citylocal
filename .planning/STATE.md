@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 01-04-PLAN.md — Phase 1 Foundation complete
-last_updated: "2026-03-16T15:33:30.379Z"
+stopped_at: Completed 02-01-PLAN.md — Phase 2 schema additions (placeCategoryEnum, postImages, eventRsvps, migration 0004)
+last_updated: "2026-03-17T16:11:56.756Z"
 last_activity: "2026-03-16 — Plan 01-03 complete: Role queries (isUserLocalInCity), server guards (requireAuth/requireLocalInCity), Paris seed"
 progress:
   total_phases: 4
   completed_phases: 1
-  total_plans: 5
-  completed_plans: 5
+  total_plans: 10
+  completed_plans: 7
   percent: 60
 ---
 
@@ -54,6 +54,8 @@ Progress: [██████░░░░] 60%
 | Phase 01-foundation P02 | 7 | 2 tasks | 19 files |
 | Phase 01-foundation P04 | 3 | 2 tasks | 6 files |
 | Phase 01-foundation P04 | 15 | 2 tasks | 6 files |
+| Phase 02-content-creation P01 | 3 | 2 tasks | 3 files |
+| Phase 02-content-creation P00 | 2 | 2 tasks | 12 files |
 
 ## Accumulated Context
 
@@ -81,6 +83,9 @@ Recent decisions affecting current work:
 - [Phase 01-foundation]: ContributionsList is synchronous in Phase 1 — async RSC not supported by react-dom/client in tests; Phase 2 will refactor with real post query
 - [Phase 01-foundation]: ContributionsList is synchronous in Phase 1 — async RSC not supported by react-dom/client in tests; Phase 2 will refactor with real post query
 - [Phase 01-foundation]: ProfileHeader uses CSS initials fallback instead of shadcn Avatar — Avatar component not installed; avoids interactive shadcn CLI
+- [Phase 02-content-creation]: placeCategoryEnum declared before posts table — forward reference causes Drizzle init error
+- [Phase 02-content-creation]: posts.category changed from varchar(50) to placeCategoryEnum for DB-level type enforcement
+- [Phase 02-content-creation]: eventRsvps uniqueIndex enforces one RSVP per user per event at DB level not application level
 
 ### Pending Todos
 
@@ -95,6 +100,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-16T15:23:01.028Z
-Stopped at: Completed 01-04-PLAN.md — Phase 1 Foundation complete
+Last session: 2026-03-17T16:11:52.488Z
+Stopped at: Completed 02-01-PLAN.md — Phase 2 schema additions (placeCategoryEnum, postImages, eventRsvps, migration 0004)
 Resume file: None

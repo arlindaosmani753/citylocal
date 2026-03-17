@@ -21,18 +21,18 @@
 
 ### Places
 
-- [ ] **PLAC-01**: Local (or user with GPS verification) can post a place with name, category, and description
+- [x] **PLAC-01**: Local (or user with GPS verification) can post a place with name, category, and description
 - [ ] **PLAC-02**: GPS location is verified server-side at post time — user must be physically within proximity of the place
-- [ ] **PLAC-03**: User can upload at least one photo when creating a place post
+- [x] **PLAC-03**: User can upload at least one photo when creating a place post
 - [ ] **PLAC-04**: Each place has a dedicated detail page showing full info, photos, and ratings
-- [ ] **PLAC-05**: Place categories include: Restaurant, Café, Bar, Activity, Sport, Tourist Attraction, Shopping, Other
+- [x] **PLAC-05**: Place categories include: Restaurant, Café, Bar, Activity, Sport, Tourist Attraction, Shopping, Other
 
 ### Events
 
-- [ ] **EVNT-01**: Local can post an open community event with name, description, date/time, and location (GPS-verified)
+- [x] **EVNT-01**: Local can post an open community event with name, description, date/time, and location (GPS-verified)
 - [ ] **EVNT-02**: Events automatically hide from the feed after their end date/time passes
-- [ ] **EVNT-03**: Any user can RSVP "I'm attending" to an event
-- [ ] **EVNT-04**: Local can create a recurring event with a repeat pattern (weekly, monthly)
+- [x] **EVNT-03**: Any user can RSVP "I'm attending" to an event
+- [x] **EVNT-04**: Local can create a recurring event with a repeat pattern (weekly, monthly)
 - [ ] **EVNT-05**: Event detail page shows attendee count and RSVP list
 
 ### City Feed & Discovery
@@ -102,15 +102,15 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ROLE-02 | Phase 1 | Complete |
 | ROLE-03 | Phase 1 | Complete |
 | ROLE-04 | Phase 1 | Complete |
-| PLAC-01 | Phase 2 | Pending |
+| PLAC-01 | Phase 2 | Complete |
 | PLAC-02 | Phase 2 | Pending |
-| PLAC-03 | Phase 2 | Pending |
+| PLAC-03 | Phase 2 | Complete |
 | PLAC-04 | Phase 2 | Pending |
-| PLAC-05 | Phase 2 | Pending |
-| EVNT-01 | Phase 2 | Pending |
+| PLAC-05 | Phase 2 | Complete |
+| EVNT-01 | Phase 2 | Complete |
 | EVNT-02 | Phase 2 | Pending |
-| EVNT-03 | Phase 2 | Pending |
-| EVNT-04 | Phase 2 | Pending |
+| EVNT-03 | Phase 2 | Complete |
+| EVNT-04 | Phase 2 | Complete |
 | EVNT-05 | Phase 2 | Pending |
 | FEED-01 | Phase 3 | Pending |
 | FEED-02 | Phase 3 | Pending |
