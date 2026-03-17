@@ -45,7 +45,12 @@ describe('Place detail page (/places/[id])', () => {
     vi.mocked(getPlaceById).mockResolvedValueOnce(mockPlace)
     const page = await PlacePage({ params: Promise.resolve({ id: 'place-1' }) })
     await act(async () => { render(page) })
-    expect(screen.getByText(/café/i)).toBeInTheDocument()
+    // Use getAllByText because title "Le Marais Café" also contains "café"
+    const cafeMentions = screen.getAllByText(/café/i)
+    expect(cafeMentions.length).toBeGreaterThanOrEqual(1)
+    // The badge (span) must be among the matches
+    const badge = cafeMentions.find(el => el.tagName.toLowerCase() === 'span')
+    expect(badge).toBeInTheDocument()
   })
 
   test('renders img elements for each photo', async () => {
