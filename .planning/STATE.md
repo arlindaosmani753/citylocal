@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 02-02-PLAN.md — GPS proximity service and Supabase Storage signed-URL action
-last_updated: "2026-03-17T16:15:38.080Z"
+stopped_at: "Completed 02-03-PLAN.md — Place creation flow: createPlace Server Action, PlaceForm, PhotoUploader, /places/new, /places/[id]"
+last_updated: "2026-03-17T16:28:18.024Z"
 last_activity: "2026-03-16 — Plan 01-03 complete: Role queries (isUserLocalInCity), server guards (requireAuth/requireLocalInCity), Paris seed"
 progress:
   total_phases: 4
   completed_phases: 1
   total_plans: 10
-  completed_plans: 8
+  completed_plans: 9
   percent: 60
 ---
 
@@ -57,6 +57,7 @@ Progress: [██████░░░░] 60%
 | Phase 02-content-creation P01 | 3 | 2 tasks | 3 files |
 | Phase 02-content-creation P00 | 2 | 2 tasks | 12 files |
 | Phase 02-content-creation P02 | 6 | 2 tasks | 4 files |
+| Phase 02-content-creation P03 | 9 | 2 tasks | 10 files |
 
 ## Accumulated Context
 
@@ -92,6 +93,9 @@ Recent decisions affecting current work:
 - [Phase 02-content-creation]: All Phase 2 test stubs use test.todo() with zero src imports — suite stays green until implementations added
 - [Phase 02-content-creation]: requireAuth() returns Supabase User with user.id — not { userId } as plan interface specified; all callers must use user.id
 - [Phase 02-content-creation]: ST_MakePoint MUST use (lng, lat) order — PostGIS (x,y) convention; GPS_ACCURACY_THRESHOLD_METERS=150 and GEOFENCE_RADIUS_METERS=200 are separate exported constants
+- [Phase 02-content-creation]: Zod v4 uses .issues[0].message not .errors[0].message for validation error extraction
+- [Phase 02-content-creation]: @testing-library/jest-dom added as project-wide setup via tests/setup.ts — toHaveTextContent and toBeInTheDocument now available to all tests
+- [Phase 02-content-creation]: Category label map needed in both PlaceForm and PlacePage to display Café (with accent) not Cafe
 
 ### Pending Todos
 
@@ -106,6 +110,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-17T16:15:38.077Z
-Stopped at: Completed 02-02-PLAN.md — GPS proximity service and Supabase Storage signed-URL action
+Last session: 2026-03-17T16:28:18.021Z
+Stopped at: Completed 02-03-PLAN.md — Place creation flow: createPlace Server Action, PlaceForm, PhotoUploader, /places/new, /places/[id]
 Resume file: None
