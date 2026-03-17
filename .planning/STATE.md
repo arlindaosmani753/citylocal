@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: "Completed 02-03-PLAN.md — Place creation flow: createPlace Server Action, PlaceForm, PhotoUploader, /places/new, /places/[id]"
-last_updated: "2026-03-17T16:28:18.024Z"
+stopped_at: "Completed 02-04-PLAN.md tasks 1-2 — event creation, RSVP actions, event pages; checkpoint:human-verify pending for end-to-end verification"
+last_updated: "2026-03-17T16:40:17.059Z"
 last_activity: "2026-03-16 — Plan 01-03 complete: Role queries (isUserLocalInCity), server guards (requireAuth/requireLocalInCity), Paris seed"
 progress:
   total_phases: 4
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 10
-  completed_plans: 9
+  completed_plans: 10
   percent: 60
 ---
 
@@ -58,6 +58,7 @@ Progress: [██████░░░░] 60%
 | Phase 02-content-creation P00 | 2 | 2 tasks | 12 files |
 | Phase 02-content-creation P02 | 6 | 2 tasks | 4 files |
 | Phase 02-content-creation P03 | 9 | 2 tasks | 10 files |
+| Phase 02-content-creation P04 | 9min | 2 tasks | 15 files |
 
 ## Accumulated Context
 
@@ -96,6 +97,7 @@ Recent decisions affecting current work:
 - [Phase 02-content-creation]: Zod v4 uses .issues[0].message not .errors[0].message for validation error extraction
 - [Phase 02-content-creation]: @testing-library/jest-dom added as project-wide setup via tests/setup.ts — toHaveTextContent and toBeInTheDocument now available to all tests
 - [Phase 02-content-creation]: Category label map needed in both PlaceForm and PlacePage to display Café (with accent) not Cafe
+- [Phase 02-content-creation]: createEvent test fixture used non-UUID cityId — fixed to UUID format; getByText(/2/) matched multiple nodes — narrowed to /2 attending/; profile-page test updated for two db.select calls and new ContributionsList empty state text
 
 ### Pending Todos
 
@@ -110,6 +112,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-17T16:28:18.021Z
-Stopped at: Completed 02-03-PLAN.md — Place creation flow: createPlace Server Action, PlaceForm, PhotoUploader, /places/new, /places/[id]
+Last session: 2026-03-17T16:40:17.056Z
+Stopped at: Completed 02-04-PLAN.md tasks 1-2 — event creation, RSVP actions, event pages; checkpoint:human-verify pending for end-to-end verification
 Resume file: None
