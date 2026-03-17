@@ -78,3 +78,70 @@ export async function createPlace(
 
   return { success: true, postId }
 }
+
+// ── Event creation ───────────────────────────────────────────────────────────
+
+const createEventSchema = z.object({
+  title:        z.string().min(2).max(120),
+  body:         z.string().min(10).max(2000),
+  cityId:       z.string().uuid(),
+  lat:          z.number(),
+  lng:          z.number(),
+  accuracy:     z.number(),
+  locationName: z.string().min(2).max(200),
+  startsAt:     z.string().datetime(),
+  endsAt:       z.string().datetime().optional(),
+  recurrence:   z.enum(['weekly', 'monthly']).nullable(),
+})
+
+export type CreateEventInput = z.infer<typeof createEventSchema>
+
+export async function createEvent(
+  input: CreateEventInput
+): Promise<{ success: true; postId: string } | { error: string }> {
+  const user = await requireLocalInCity(input.cityId)
+
+  const parsed = createEventSchema.safeParse(input)
+  if (!parsed.success) {
+    return { error: parsed.error.issues?.[0]?.message ?? 'Invalid input' }
+  }
+
+  const gps = await verifyGpsProximity(
+    parsed.data.lat, parsed.data.lng, parsed.data.accuracy,
+    parsed.data.lat, parsed.data.lng
+  )
+  if (!gps.verified) {
+    return { error: gps.reason ?? 'Location verification failed' }
+  }
+
+  const recurrenceInterval =
+    parsed.data.recurrence === 'weekly'  ? '1 week'  :
+    parsed.data.recurrence === 'monthly' ? '1 month' :
+    null
+
+  const postId = await db.transaction(async (tx) => {
+    const [post] = await tx
+      .insert(posts)
+      .values({
+        cityId:             parsed.data.cityId,
+        authorId:           user.id,
+        contentType:        'event',
+        title:              parsed.data.title,
+        body:               parsed.data.body,
+        lat:                String(parsed.data.lat),
+        lng:                String(parsed.data.lng),
+        location:           sql`ST_SetSRID(ST_MakePoint(${parsed.data.lng}, ${parsed.data.lat}), 4326)::geography`,
+        locationName:       parsed.data.locationName,
+        startsAt:           new Date(parsed.data.startsAt),
+        endsAt:             parsed.data.endsAt ? new Date(parsed.data.endsAt) : null,
+        recurrenceInterval,
+        status:             'active',
+      })
+      .returning({ id: posts.id })
+
+    if (!post) throw new Error('Failed to insert event')
+    return post.id
+  })
+
+  return { success: true, postId }
+}

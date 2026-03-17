@@ -1,31 +1,38 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+// ContributionsList stays synchronous — parent profile page fetches via listContributionsForUser
+// and passes results as a prop. This avoids the async RSC / react-dom/client incompatibility
+// established in Phase 1 (STATE.md decision).
 
-type Props = { userId: string }
+import type { ContributionSummary } from '@/lib/db/queries/posts'
+import { format } from 'date-fns'
+import Link from 'next/link'
 
-export function ContributionsList({ userId: _userId }: Props) {
-  // Phase 2 will query posts here via a Server Action or parent page
-  const posts: unknown[] = []
+type Props = { posts: ContributionSummary[] }
+
+export function ContributionsList({ posts }: Props) {
+  if (posts.length === 0) {
+    return <p className="text-neutral-500 text-sm">No contributions yet.</p>
+  }
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-base">
-          Contributions
-          <span className="ml-2 text-sm font-normal text-muted-foreground">
-            {posts.length} contributions
-          </span>
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        {posts.length === 0 ? (
-          <div className="py-8 text-center">
-            <p className="text-sm text-muted-foreground">No contributions yet.</p>
-            <p className="mt-1 text-xs text-muted-foreground">
-              Posts will appear here once they&apos;re added in a future update.
-            </p>
-          </div>
-        ) : null}
-      </CardContent>
-    </Card>
+    <section>
+      <h2 className="text-sm font-semibold text-neutral-500 uppercase tracking-wide mb-3">
+        Contributions ({posts.length})
+      </h2>
+      <ul className="space-y-2">
+        {posts.map(post => (
+          <li key={post.id}>
+            <Link
+              href={post.contentType === 'place' ? `/places/${post.id}` : `/events/${post.id}`}
+              className="flex items-center justify-between text-sm hover:underline"
+            >
+              <span>{post.title}</span>
+              <span className="text-neutral-400 ml-4 shrink-0">
+                {format(post.createdAt, 'MMM d, yyyy')}
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
   )
 }

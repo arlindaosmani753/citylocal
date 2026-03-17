@@ -4,6 +4,7 @@ import { profiles, cities } from '@/lib/db/schema'
 import { eq } from 'drizzle-orm'
 import { ProfileHeader } from '@/components/profile/ProfileHeader'
 import { ContributionsList } from '@/components/profile/ContributionsList'
+import { listContributionsForUser } from '@/lib/db/queries/posts'
 import type { Metadata } from 'next'
 
 type Props = { params: Promise<{ username: string }> }
@@ -34,10 +35,12 @@ export default async function ProfilePage({ params }: Props) {
   const profile = result[0]
   if (!profile) notFound()
 
+  const contributions = await listContributionsForUser(profile.id)
+
   return (
     <main className="container mx-auto max-w-2xl py-8 px-4">
       <ProfileHeader profile={profile} />
-      <ContributionsList userId={profile.id} />
+      <ContributionsList posts={contributions} />
     </main>
   )
 }
