@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: "Completed 02-04-PLAN.md — all 3 tasks complete including human-verify checkpoint approved; Phase 2 fully done, Phase 3 ready to begin"
-last_updated: "2026-03-17T16:40:17.059Z"
+stopped_at: Completed 03-01-PLAN.md — feed.ts and cities.ts query files implemented, 19 tests passing
+last_updated: "2026-03-18T17:35:36.866Z"
 last_activity: "2026-03-16 — Plan 01-03 complete: Role queries (isUserLocalInCity), server guards (requireAuth/requireLocalInCity), Paris seed"
 progress:
   total_phases: 4
   completed_phases: 2
-  total_plans: 10
-  completed_plans: 10
+  total_plans: 13
+  completed_plans: 12
   percent: 60
 ---
 
@@ -59,6 +59,8 @@ Progress: [██████░░░░] 60%
 | Phase 02-content-creation P02 | 6 | 2 tasks | 4 files |
 | Phase 02-content-creation P03 | 9 | 2 tasks | 10 files |
 | Phase 02-content-creation P04 | 9min | 2 tasks | 15 files |
+| Phase 03-city-feed-and-discovery P01 | 4min | 2 tasks | 4 files |
+| Phase 03-city-feed-and-discovery P00 | 3 | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -98,6 +100,11 @@ Recent decisions affecting current work:
 - [Phase 02-content-creation]: @testing-library/jest-dom added as project-wide setup via tests/setup.ts — toHaveTextContent and toBeInTheDocument now available to all tests
 - [Phase 02-content-creation]: Category label map needed in both PlaceForm and PlacePage to display Café (with accent) not Cafe
 - [Phase 02-content-creation]: createEvent test fixture used non-UUID cityId — fixed to UUID format; getByText(/2/) matched multiple nodes — narrowed to /2 attending/; profile-page test updated for two db.select calls and new ContributionsList empty state text
+- [Phase 03-city-feed-and-discovery]: Wave 0 stubs use test.todo() with zero src imports — same Nyquist compliance pattern as Phase 1 and Phase 2
+- [Phase 03-city-feed-and-discovery]: Leaflet mock strategy (vi.mock react-leaflet + leaflet) documented in comment in city-map.test.tsx — deferred to Wave 2 when CityMap component exists
+- [Phase 03-city-feed-and-discovery]: category='event' filter uses contentType column NOT category column (category is null for events)
+- [Phase 03-city-feed-and-discovery]: Compound cursor for getFeedForCity: fetch limit+1 rows; last item of sliced result becomes nextCursor
+- [Phase 03-city-feed-and-discovery]: Past-event exclusion: or(isPlace, endsAt IS NULL, endsAt > NOW()) so places are never excluded by event filter
 
 ### Pending Todos
 
@@ -112,6 +119,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-17T16:40:17.056Z
-Stopped at: Completed 02-04-PLAN.md tasks 1-2 — event creation, RSVP actions, event pages; checkpoint:human-verify pending for end-to-end verification
+Last session: 2026-03-18T17:35:36.862Z
+Stopped at: Completed 03-01-PLAN.md — feed.ts and cities.ts query files implemented, 19 tests passing
 Resume file: None
