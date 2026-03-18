@@ -81,12 +81,13 @@ Plans:
   1. Any authenticated user can leave a 1–5 star rating on a place or event, with an optional written review
   2. Average rating and total review count appear on place and event cards in the feed and on detail pages
   3. Any user can report/flag a place, event, or review as inappropriate — flagged content enters the soft-delete queue
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 04-01: Review model and rating_summary denormalized table (write-through on review submission)
-- [ ] 04-02: Rating/review UI (star input, review form, role-gated submission, report/flag integration)
-- [ ] 04-03: Rating display on feed cards and detail pages (aggregate query from rating_summary)
+- [ ] 04-00-PLAN.md — Wave 0 test stubs (Nyquist baseline, test.todo() with zero src imports)
+- [ ] 04-01-PLAN.md — Schema (reviews + rating_summary), createReview/deleteReview/reportContent actions, ratings query
+- [ ] 04-02-PLAN.md — Rating UI components (StarRating, RatingBadge, ReviewForm, ReportButton) + detail page wiring
+- [ ] 04-03-PLAN.md — Feed query extension (join rating_summary), FeedCard RatingBadge, human verification checkpoint
 
 ## Progress
 
@@ -98,4 +99,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 1. Foundation | 5/5 | Complete   | 2026-03-16 |
 | 2. Content Creation | 5/5 | Complete   | 2026-03-17 |
 | 3. City Feed and Discovery | 0/4 | Not started | - |
-| 4. Ratings and Trust | 0/3 | Not started | - |
+| 4. Ratings and Trust | 0/4 | Not started | - |
