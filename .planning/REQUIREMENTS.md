@@ -44,10 +44,10 @@
 
 ### Ratings & Trust
 
-- [ ] **RATE-01**: Any authenticated user can leave a star rating (1–5) on a place or event they visited
-- [ ] **RATE-02**: Rating includes an optional written review alongside the star score
-- [ ] **RATE-03**: Any user can report/flag a place, event, or review as inappropriate
-- [ ] **RATE-04**: Average rating and total review count are displayed on place and event cards and detail pages
+- [x] **RATE-01**: Any authenticated user can leave a star rating (1–5) on a place or event they visited
+- [x] **RATE-02**: Rating includes an optional written review alongside the star score
+- [x] **RATE-03**: Any user can report/flag a place, event, or review as inappropriate
+- [x] **RATE-04**: Average rating and total review count are displayed on place and event cards and detail pages
 
 ## v2 Requirements
 
@@ -116,10 +116,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FEED-02 | Phase 3 | Complete |
 | FEED-03 | Phase 3 | Complete |
 | FEED-04 | Phase 3 | Complete |
-| RATE-01 | Phase 4 | Pending |
-| RATE-02 | Phase 4 | Pending |
-| RATE-03 | Phase 4 | Pending |
-| RATE-04 | Phase 4 | Pending |
+| RATE-01 | Phase 4 | Complete |
+| RATE-02 | Phase 4 | Complete |
+| RATE-03 | Phase 4 | Complete |
+| RATE-04 | Phase 4 | Complete |
 
 **Coverage:**
 - v1 requirements: 26 total
