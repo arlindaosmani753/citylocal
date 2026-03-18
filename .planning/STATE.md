@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 03-02-PLAN.md — city feed page, FeedCard, CategoryFilterTabs, FeedList — 111 tests passing
-last_updated: "2026-03-18T17:41:10.570Z"
+stopped_at: Completed 03-04-PLAN.md — react-leaflet map component stack, CityMap + CityMapLoader, closes FEED-04 gap — 119 tests passing
+last_updated: "2026-03-18T18:12:14.411Z"
 last_activity: "2026-03-16 — Plan 01-03 complete: Role queries (isUserLocalInCity), server guards (requireAuth/requireLocalInCity), Paris seed"
 progress:
   total_phases: 4
-  completed_phases: 3
-  total_plans: 13
-  completed_plans: 13
+  completed_phases: 2
+  total_plans: 15
+  completed_plans: 14
   percent: 60
 ---
 
@@ -62,6 +62,7 @@ Progress: [██████░░░░] 60%
 | Phase 03-city-feed-and-discovery P01 | 4min | 2 tasks | 4 files |
 | Phase 03-city-feed-and-discovery P00 | 3 | 2 tasks | 5 files |
 | Phase 03-city-feed-and-discovery P02 | 2 | 2 tasks | 7 files |
+| Phase 03-city-feed-and-discovery P04 | 3min | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -108,6 +109,8 @@ Recent decisions affecting current work:
 - [Phase 03-city-feed-and-discovery]: Past-event exclusion: or(isPlace, endsAt IS NULL, endsAt > NOW()) so places are never excluded by event filter
 - [Phase 03-city-feed-and-discovery]: CategoryFilterTabs uses aria-current='page' on active Link — accessible and testable without className inspection
 - [Phase 03-city-feed-and-discovery]: URLSearchParams encoding for Load more href — safe for ISO cursor strings containing colons and dots
+- [Phase 03-city-feed-and-discovery]: L.Icon mock must use constructor function not arrow fn — vi.fn().mockImplementation(() => ({})) is not a constructor
+- [Phase 03-city-feed-and-discovery]: city-page.test.tsx must mock getPostsForMap alongside getFeedForCity — CityMapLoader renders inside Suspense and calls getPostsForMap
 
 ### Pending Todos
 
@@ -122,6 +125,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-18T17:41:10.566Z
-Stopped at: Completed 03-02-PLAN.md — city feed page, FeedCard, CategoryFilterTabs, FeedList — 111 tests passing
+Last session: 2026-03-18T18:12:14.397Z
+Stopped at: Completed 03-04-PLAN.md — react-leaflet map component stack, CityMap + CityMapLoader, closes FEED-04 gap — 119 tests passing
 Resume file: None
