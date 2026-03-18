@@ -163,3 +163,32 @@ export const reports = pgTable(
     index('reports_reporter_idx').on(table.reporterId),
   ]
 )
+
+// Phase 4: Reviews (one per user per post, enforced by uniqueIndex)
+export const reviews = pgTable(
+  'reviews',
+  {
+    id:       uuid('id').primaryKey().defaultRandom(),
+    postId:   uuid('post_id').notNull().references(() => posts.id, { onDelete: 'cascade' }),
+    authorId: uuid('author_id').notNull().references(() => profiles.id, { onDelete: 'cascade' }),
+    stars:    integer('stars').notNull(), // Zod enforces 1–5; no DB CHECK needed
+    body:     text('body'),
+    status:   contentStatusEnum('status').notNull().default('active'),
+    flagCount: integer('flag_count').notNull().default(0),
+    ...timestamps,
+  },
+  (table) => [
+    uniqueIndex('reviews_post_author_unique').on(table.postId, table.authorId),
+    index('reviews_post_idx').on(table.postId),
+    index('reviews_author_idx').on(table.authorId),
+    index('reviews_status_idx').on(table.status),
+  ]
+)
+
+// Phase 4: Rating summary (write-through cache; upserted on every review mutation)
+export const ratingSummary = pgTable('rating_summary', {
+  postId:      uuid('post_id').primaryKey().references(() => posts.id, { onDelete: 'cascade' }),
+  avgRating:   decimal('avg_rating', { precision: 3, scale: 2 }).notNull().default('0'),
+  reviewCount: integer('review_count').notNull().default(0),
+  updatedAt:   timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
+})
