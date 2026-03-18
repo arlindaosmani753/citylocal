@@ -52,7 +52,7 @@ describe('reportContent (RATE-03)', () => {
     mockTx.update.mockReturnValue(mockTx)
     mockTx.set.mockReturnValue(mockTx)
     mockTx.limit.mockResolvedValue([{ id: VALID_POST_ID, status: 'active', flagCount: 0 }])
-    vi.mocked(db.transaction).mockImplementation((cb: (tx: typeof mockTx) => Promise<unknown>) => cb(mockTx))
+    ;(vi.mocked(db.transaction).mockImplementation as any)((cb: (tx: typeof mockTx) => Promise<unknown>) => cb(mockTx))
   })
 
   test('reportContent inserts a row into the reports table', async () => {

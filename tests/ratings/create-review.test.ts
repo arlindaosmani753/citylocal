@@ -72,7 +72,7 @@ describe('createReview (RATE-01 / RATE-02 / RATE-04)', () => {
     mockTx.where.mockResolvedValue([{ avgVal: '4.00', countVal: 1 }])
     mockTx.update.mockReturnValue(mockTx)
     mockTx.set.mockReturnValue(mockTx)
-    vi.mocked(db.transaction).mockImplementation((cb: (tx: typeof mockTx) => Promise<unknown>) => cb(mockTx))
+    ;(vi.mocked(db.transaction).mockImplementation as any)((cb: (tx: typeof mockTx) => Promise<unknown>) => cb(mockTx))
   })
 
   test('createReview inserts a review row with stars 1', async () => {
@@ -149,10 +149,18 @@ describe('createReview (RATE-01 / RATE-02 / RATE-04)', () => {
 
   test('deleteReview recalculates rating_summary after removal', async () => {
     vi.mocked(requireAuth).mockResolvedValueOnce({ id: 'user-1' } as any)
-    // deleteReview finds review in tx
-    mockTx.limit.mockResolvedValue([makeReview()])
-    mockTx.set.mockReturnValue(mockTx)
-    mockTx.where.mockResolvedValue([{ avgVal: '0.00', countVal: 0 }])
+    // Setup tx mock: where returns mockTx for .limit() chain; recalculate uses where that resolves agg
+    ;(vi.mocked(db.transaction).mockImplementationOnce as any)((cb: (tx: typeof mockTx) => Promise<unknown>) => {
+      let whereCallCount = 0
+      mockTx.where.mockImplementation(() => {
+        whereCallCount++
+        if (whereCallCount <= 1) return mockTx // for .limit() chain in deleteReview
+        return Promise.resolve([{ avgVal: '0.00', countVal: 0 }]) // recalculate
+      })
+      mockTx.limit.mockResolvedValue([makeReview()])
+      mockTx.set.mockReturnValue(mockTx)
+      return cb(mockTx)
+    })
     const result = await deleteReview(VALID_REVIEW_ID)
     expect(result).toEqual({ success: true })
     expect(db.transaction).toHaveBeenCalled()
@@ -167,11 +175,35 @@ describe('deleteReview (RATE-01)', () => {
     mockTx.onConflictDoUpdate.mockResolvedValue(undefined)
     mockTx.select.mockReturnValue(mockTx)
     mockTx.from.mockReturnValue(mockTx)
-    mockTx.where.mockResolvedValue([{ avgVal: '0.00', countVal: 0 }])
+    // where must return mockTx so .limit() can be chained; then recalculateSummary uses where too
+    mockTx.where.mockReturnValue(mockTx)
+    // First .limit() call returns the review; subsequent .where() in recalculate returns agg
+    mockTx.limit.mockResolvedValue([makeReview()])
     mockTx.update.mockReturnValue(mockTx)
     mockTx.set.mockReturnValue(mockTx)
-    mockTx.limit.mockResolvedValue([makeReview()])
-    vi.mocked(db.transaction).mockImplementation((cb: (tx: typeof mockTx) => Promise<unknown>) => cb(mockTx))
+    // After limit resolves, recalculateSummary calls select/from/where again — where resolves with agg
+    // We set where to resolve with agg on second call pattern via limit second call
+    ;(vi.mocked(db.transaction).mockImplementation as any)((cb: (tx: typeof mockTx) => Promise<unknown>) => {
+      // Reset where to return mockTx (for chaining), limit returns review on first call, agg on second
+      let limitCallCount = 0
+      mockTx.limit.mockImplementation(() => {
+        limitCallCount++
+        if (limitCallCount === 1) {
+          return Promise.resolve([makeReview()])
+        }
+        return Promise.resolve([{ avgVal: '0.00', countVal: 0 }])
+      })
+      // where used in recalculateSummary resolves agg directly (no .limit)
+      let whereCallCount = 0
+      mockTx.where.mockImplementation(() => {
+        whereCallCount++
+        if (whereCallCount <= 1) {
+          return mockTx // for .limit() chain
+        }
+        return Promise.resolve([{ avgVal: '0.00', countVal: 0 }]) // recalculate
+      })
+      return cb(mockTx)
+    })
   })
 
   test('soft-deletes review and recalculates rating_summary', async () => {
@@ -184,14 +216,26 @@ describe('deleteReview (RATE-01)', () => {
 
   test('returns error if review not found', async () => {
     vi.mocked(requireAuth).mockResolvedValueOnce({ id: 'user-1' } as any)
-    mockTx.limit.mockResolvedValue([])
+    ;(vi.mocked(db.transaction).mockImplementationOnce as any)((cb: (tx: typeof mockTx) => Promise<unknown>) => {
+      mockTx.select.mockReturnValue(mockTx)
+      mockTx.from.mockReturnValue(mockTx)
+      mockTx.where.mockReturnValue(mockTx)
+      mockTx.limit.mockResolvedValue([])
+      return cb(mockTx)
+    })
     const result = await deleteReview(VALID_REVIEW_ID)
     expect(result).toHaveProperty('error')
   })
 
   test('returns error if user does not own the review', async () => {
     vi.mocked(requireAuth).mockResolvedValueOnce({ id: 'other-user' } as any)
-    mockTx.limit.mockResolvedValue([makeReview({ authorId: 'user-1' })])
+    ;(vi.mocked(db.transaction).mockImplementationOnce as any)((cb: (tx: typeof mockTx) => Promise<unknown>) => {
+      mockTx.select.mockReturnValue(mockTx)
+      mockTx.from.mockReturnValue(mockTx)
+      mockTx.where.mockReturnValue(mockTx)
+      mockTx.limit.mockResolvedValue([makeReview({ authorId: 'user-1' })])
+      return cb(mockTx)
+    })
     const result = await deleteReview(VALID_REVIEW_ID)
     expect(result).toHaveProperty('error')
   })
