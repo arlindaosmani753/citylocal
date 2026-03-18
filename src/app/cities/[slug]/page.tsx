@@ -1,8 +1,10 @@
+import { Suspense } from 'react'
 import { notFound } from 'next/navigation'
 import { getCityBySlug } from '@/lib/db/queries/cities'
 import { getFeedForCity } from '@/lib/db/queries/feed'
 import CategoryFilterTabs from '@/components/feed/CategoryFilterTabs'
 import FeedList from '@/components/feed/FeedList'
+import CityMapLoader from '@/components/map/CityMapLoader'
 
 export const revalidate = 60
 
@@ -43,7 +45,9 @@ export default async function CityPage({ params, searchParams }: Props) {
         citySlug={slug}
         activeCategory={category}
       />
-      <div id="map-placeholder" />
+      <Suspense fallback={<div>Loading map...</div>}>
+        <CityMapLoader cityId={city.id} />
+      </Suspense>
     </main>
   )
 }

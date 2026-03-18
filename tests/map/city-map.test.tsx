@@ -6,7 +6,7 @@ import React from 'react'
 vi.mock('leaflet/dist/leaflet.css', () => ({}))
 vi.mock('leaflet', () => ({
   default: {
-    Icon: vi.fn().mockImplementation(() => ({})),
+    Icon: function Icon() { return {} },
   },
 }))
 vi.mock('react-leaflet', () => ({

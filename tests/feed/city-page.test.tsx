@@ -4,6 +4,7 @@ import { act } from 'react'
 
 vi.mock('@/lib/db/queries/feed', () => ({
   getFeedForCity: vi.fn(),
+  getPostsForMap: vi.fn().mockResolvedValue([]),
 }))
 vi.mock('@/lib/db/queries/cities', () => ({
   getCityBySlug: vi.fn(),
