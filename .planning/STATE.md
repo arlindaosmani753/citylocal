@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 03-04-PLAN.md — react-leaflet map component stack, CityMap + CityMapLoader, closes FEED-04 gap — 119 tests passing
-last_updated: "2026-03-18T18:12:14.411Z"
+stopped_at: Completed 03-03-PLAN.md — city search page, CitySearchForm, closes FEED-03 gap — 119 tests passing
+last_updated: "2026-03-18T18:14:22.838Z"
 last_activity: "2026-03-16 — Plan 01-03 complete: Role queries (isUserLocalInCity), server guards (requireAuth/requireLocalInCity), Paris seed"
 progress:
   total_phases: 4
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 15
-  completed_plans: 14
+  completed_plans: 15
   percent: 60
 ---
 
@@ -63,6 +63,7 @@ Progress: [██████░░░░] 60%
 | Phase 03-city-feed-and-discovery P00 | 3 | 2 tasks | 5 files |
 | Phase 03-city-feed-and-discovery P02 | 2 | 2 tasks | 7 files |
 | Phase 03-city-feed-and-discovery P04 | 3min | 2 tasks | 7 files |
+| Phase 03-city-feed-and-discovery P03 | 6min | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -111,6 +112,8 @@ Recent decisions affecting current work:
 - [Phase 03-city-feed-and-discovery]: URLSearchParams encoding for Load more href — safe for ISO cursor strings containing colons and dots
 - [Phase 03-city-feed-and-discovery]: L.Icon mock must use constructor function not arrow fn — vi.fn().mockImplementation(() => ({})) is not a constructor
 - [Phase 03-city-feed-and-discovery]: city-page.test.tsx must mock getPostsForMap alongside getFeedForCity — CityMapLoader renders inside Suspense and calls getPostsForMap
+- [Phase 03-city-feed-and-discovery]: UI tests for CitySearchPage placed in separate file to prevent vi.mock hoisting conflict with query unit tests
+- [Phase 03-city-feed-and-discovery]: CitySearchForm uses plain HTML GET form — bookmarkable, no JS dependency, aria-label for accessibility
 
 ### Pending Todos
 
@@ -125,6 +128,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-18T18:12:14.397Z
-Stopped at: Completed 03-04-PLAN.md — react-leaflet map component stack, CityMap + CityMapLoader, closes FEED-04 gap — 119 tests passing
+Last session: 2026-03-18T18:14:22.834Z
+Stopped at: Completed 03-03-PLAN.md — city search page, CitySearchForm, closes FEED-03 gap — 119 tests passing
 Resume file: None
