@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 03-01-PLAN.md — feed.ts and cities.ts query files implemented, 19 tests passing
-last_updated: "2026-03-18T17:35:36.866Z"
+stopped_at: Completed 03-02-PLAN.md — city feed page, FeedCard, CategoryFilterTabs, FeedList — 111 tests passing
+last_updated: "2026-03-18T17:41:10.570Z"
 last_activity: "2026-03-16 — Plan 01-03 complete: Role queries (isUserLocalInCity), server guards (requireAuth/requireLocalInCity), Paris seed"
 progress:
   total_phases: 4
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 13
-  completed_plans: 12
+  completed_plans: 13
   percent: 60
 ---
 
@@ -61,6 +61,7 @@ Progress: [██████░░░░] 60%
 | Phase 02-content-creation P04 | 9min | 2 tasks | 15 files |
 | Phase 03-city-feed-and-discovery P01 | 4min | 2 tasks | 4 files |
 | Phase 03-city-feed-and-discovery P00 | 3 | 2 tasks | 5 files |
+| Phase 03-city-feed-and-discovery P02 | 2 | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -105,6 +106,8 @@ Recent decisions affecting current work:
 - [Phase 03-city-feed-and-discovery]: category='event' filter uses contentType column NOT category column (category is null for events)
 - [Phase 03-city-feed-and-discovery]: Compound cursor for getFeedForCity: fetch limit+1 rows; last item of sliced result becomes nextCursor
 - [Phase 03-city-feed-and-discovery]: Past-event exclusion: or(isPlace, endsAt IS NULL, endsAt > NOW()) so places are never excluded by event filter
+- [Phase 03-city-feed-and-discovery]: CategoryFilterTabs uses aria-current='page' on active Link — accessible and testable without className inspection
+- [Phase 03-city-feed-and-discovery]: URLSearchParams encoding for Load more href — safe for ISO cursor strings containing colons and dots
 
 ### Pending Todos
 
@@ -119,6 +122,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-18T17:35:36.862Z
-Stopped at: Completed 03-01-PLAN.md — feed.ts and cities.ts query files implemented, 19 tests passing
+Last session: 2026-03-18T17:41:10.566Z
+Stopped at: Completed 03-02-PLAN.md — city feed page, FeedCard, CategoryFilterTabs, FeedList — 111 tests passing
 Resume file: None
