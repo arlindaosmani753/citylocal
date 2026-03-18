@@ -37,10 +37,10 @@
 
 ### City Feed & Discovery
 
-- [ ] **FEED-01**: Each city has a public page showing a chronological feed of recent place posts and events
-- [ ] **FEED-02**: City feed can be filtered by content category (restaurants, events, activities, etc.)
-- [ ] **FEED-03**: User can search for a city by name and navigate to its city page
-- [ ] **FEED-04**: City page has an interactive map view showing all places as pins
+- [x] **FEED-01**: Each city has a public page showing a chronological feed of recent place posts and events
+- [x] **FEED-02**: City feed can be filtered by content category (restaurants, events, activities, etc.)
+- [x] **FEED-03**: User can search for a city by name and navigate to its city page
+- [x] **FEED-04**: City page has an interactive map view showing all places as pins
 
 ### Ratings & Trust
 
@@ -112,10 +112,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | EVNT-03 | Phase 2 | Complete |
 | EVNT-04 | Phase 2 | Complete |
 | EVNT-05 | Phase 2 | Complete |
-| FEED-01 | Phase 3 | Pending |
-| FEED-02 | Phase 3 | Pending |
-| FEED-03 | Phase 3 | Pending |
-| FEED-04 | Phase 3 | Pending |
+| FEED-01 | Phase 3 | Complete |
+| FEED-02 | Phase 3 | Complete |
+| FEED-03 | Phase 3 | Complete |
+| FEED-04 | Phase 3 | Complete |
 | RATE-01 | Phase 4 | Pending |
 | RATE-02 | Phase 4 | Pending |
 | RATE-03 | Phase 4 | Pending |
