@@ -37,6 +37,8 @@ function makeFeedPost(overrides: Partial<Record<string, unknown>> = {}) {
     startsAt: null,
     endsAt: null,
     firstImagePath: null,
+    avgRating: null,
+    reviewCount: null,
     ...overrides,
   }
 }

@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react'
 import { describe, test, expect } from 'vitest'
 import { RatingBadge } from '../../src/components/ratings/RatingBadge'
 import { StarRating } from '../../src/components/ratings/StarRating'
+import FeedCard from '../../src/components/feed/FeedCard'
 
 // RATE-04: RatingBadge display component
 describe('RatingBadge', () => {
@@ -56,6 +57,48 @@ describe('StarRating', () => {
   })
 })
 
-// FeedCard rating tests — deferred until FeedPost type includes avgRating (plan 04-03)
-test.todo('FeedCard renders RatingBadge when avgRating and reviewCount are present')
-test.todo('FeedCard renders nothing for rating when reviewCount is null')
+// FeedCard rating tests — activated in plan 04-03 now FeedPost type includes avgRating
+describe('FeedCard rating integration', () => {
+  test('FeedCard renders RatingBadge when avgRating and reviewCount are present', () => {
+    const post = {
+      id: 'post-1',
+      title: 'Test Place',
+      contentType: 'place' as const,
+      category: 'cafe',
+      body: null,
+      lat: '48.8566',
+      lng: '2.3522',
+      authorUsername: 'alice',
+      createdAt: new Date('2024-01-15T10:00:00Z'),
+      startsAt: null,
+      endsAt: null,
+      firstImagePath: null,
+      avgRating: '4.2',
+      reviewCount: 17,
+    }
+    render(<FeedCard post={post} />)
+    expect(screen.getByText('4.2')).toBeTruthy()
+    expect(screen.getByText('(17)')).toBeTruthy()
+  })
+
+  test('FeedCard renders nothing for rating when reviewCount is null', () => {
+    const post = {
+      id: 'post-2',
+      title: 'Test Place 2',
+      contentType: 'place' as const,
+      category: 'bar',
+      body: null,
+      lat: '48.8566',
+      lng: '2.3522',
+      authorUsername: 'bob',
+      createdAt: new Date('2024-01-15T10:00:00Z'),
+      startsAt: null,
+      endsAt: null,
+      firstImagePath: null,
+      avgRating: null,
+      reviewCount: null,
+    }
+    const { container } = render(<FeedCard post={post} />)
+    expect(container.querySelector('[aria-label]')).toBeNull()
+  })
+})
