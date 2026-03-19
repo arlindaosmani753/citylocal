@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Foundation** - Auth, per-city roles, soft-delete, and report mechanism — the prerequisite for everything (completed 2026-03-16)
 - [x] **Phase 2: Content Creation** - GPS-verified place and event posting on a unified posts table (completed 2026-03-17)
 - [ ] **Phase 3: City Feed and Discovery** - Public city pages with feed, filters, search, and map
-- [ ] **Phase 4: Ratings and Trust** - Tourist reviews and rating aggregation close the two-sided market
+- [x] **Phase 4: Ratings and Trust** - Tourist reviews and rating aggregation close the two-sided market (completed 2026-03-19)
 
 ## Phase Details
 
@@ -99,4 +99,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 1. Foundation | 5/5 | Complete   | 2026-03-16 |
 | 2. Content Creation | 5/5 | Complete   | 2026-03-17 |
 | 3. City Feed and Discovery | 0/4 | Not started | - |
-| 4. Ratings and Trust | 3/4 | In Progress|  |
+| 4. Ratings and Trust | 4/4 | Complete   | 2026-03-19 |
