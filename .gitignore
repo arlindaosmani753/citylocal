@@ -37,3 +37,23 @@ tsconfig.tsbuildinfo
 
 # drizzle
 .drizzle/
+
+# Claude Code internal
+.claude/
+.nvm/
+.npm/
+.config/
+.cache/
+.vscode-server/
+.dotnet/
+.bash_history
+.bashrc
+.profile
+.forward
+.wget-hsts
+.rnd
+.ssh/
+startup.md
+credentials.md
+ecosystem.config.js
+supabase/migrations/0000_full_schema.sql
