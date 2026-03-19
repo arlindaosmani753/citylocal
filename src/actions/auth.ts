@@ -56,7 +56,7 @@ export type UpdatePasswordResult = ActionError<UpdatePasswordInput> | ActionSucc
 
 // ─── registerUser ─────────────────────────────────────────────────────────────
 
-export async function registerUser(formData: FormData): Promise<RegisterResult> {
+export async function registerUser(_prevState: RegisterResult, formData: FormData): Promise<RegisterResult> {
   const raw = {
     email: formData.get('email') as string,
     password: formData.get('password') as string,
@@ -110,7 +110,7 @@ export async function registerUser(formData: FormData): Promise<RegisterResult> 
 
 // ─── signIn ───────────────────────────────────────────────────────────────────
 
-export async function signIn(formData: FormData): Promise<SignInResult> {
+export async function signIn(_prevState: SignInResult, formData: FormData): Promise<SignInResult> {
   const raw = {
     email: formData.get('email') as string,
     password: formData.get('password') as string,
@@ -153,7 +153,7 @@ export async function signOut(): Promise<void> {
 
 // ─── resetPassword ────────────────────────────────────────────────────────────
 
-export async function resetPassword(formData: FormData): Promise<ResetPasswordResult> {
+export async function resetPassword(_prevState: ResetPasswordResult, formData: FormData): Promise<ResetPasswordResult> {
   const raw = {
     email: formData.get('email') as string,
   }

@@ -17,7 +17,7 @@ type LoginState = {
 
 export function LoginForm() {
   const [state, action, isPending] = useActionState<LoginState, FormData>(
-    signIn as unknown as (state: LoginState, formData: FormData) => Promise<LoginState>,
+    signIn as (state: LoginState, formData: FormData) => Promise<LoginState>,
     undefined
   )
 

@@ -29,7 +29,7 @@ type Props = {
 
 export function RegisterForm({ cities }: Props) {
   const [state, action, isPending] = useActionState<RegisterState, FormData>(
-    registerUser as unknown as (state: RegisterState, formData: FormData) => Promise<RegisterState>,
+    registerUser as (state: RegisterState, formData: FormData) => Promise<RegisterState>,
     undefined
   )
 

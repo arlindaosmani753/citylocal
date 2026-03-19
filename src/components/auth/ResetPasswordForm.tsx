@@ -19,7 +19,7 @@ type ResetState =
 
 export function ResetPasswordForm() {
   const [state, action, isPending] = useActionState<ResetState, FormData>(
-    resetPassword as unknown as (state: ResetState, formData: FormData) => Promise<ResetState>,
+    resetPassword as (state: ResetState, formData: FormData) => Promise<ResetState>,
     undefined
   )
 
