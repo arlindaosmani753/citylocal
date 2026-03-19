@@ -99,4 +99,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 1. Foundation | 5/5 | Complete   | 2026-03-16 |
 | 2. Content Creation | 5/5 | Complete   | 2026-03-17 |
 | 3. City Feed and Discovery | 0/4 | Not started | - |
-| 4. Ratings and Trust | 1/4 | In Progress|  |
+| 4. Ratings and Trust | 3/4 | In Progress|  |
