@@ -3,6 +3,10 @@ import { render, screen } from '@testing-library/react'
 import { act } from 'react'
 
 vi.mock('@/lib/db/queries/posts', () => ({ getPlaceById: vi.fn() }))
+vi.mock('@/lib/db/queries/ratings', () => ({
+  getRatingSummary: vi.fn().mockResolvedValue({ avgRating: null, reviewCount: null }),
+  getReviewsForPost: vi.fn().mockResolvedValue([]),
+}))
 vi.mock('next/navigation', () => ({ notFound: vi.fn(() => { throw new Error('NEXT_NOT_FOUND') }) }))
 vi.mock('@/lib/supabase/client', () => ({
   createClient: vi.fn(() => ({
