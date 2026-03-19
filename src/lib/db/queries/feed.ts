@@ -1,5 +1,5 @@
 import { db } from '@/lib/db'
-import { posts, profiles, postImages } from '@/lib/db/schema'
+import { posts, profiles, postImages, ratingSummary } from '@/lib/db/schema'
 import { and, or, eq, isNull, isNotNull, lt, desc, gt, sql } from 'drizzle-orm'
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -17,6 +17,8 @@ export type FeedPost = {
   startsAt: Date | null
   endsAt: Date | null
   firstImagePath: string | null
+  avgRating: string | null
+  reviewCount: number | null
 }
 
 export type FeedCursor = {
@@ -95,6 +97,8 @@ export async function getFeedForCity(
       startsAt:      posts.startsAt,
       endsAt:        posts.endsAt,
       firstImagePath: postImages.storagePath,
+      avgRating: ratingSummary.avgRating,
+      reviewCount: ratingSummary.reviewCount,
     })
     .from(posts)
     .leftJoin(profiles, eq(profiles.id, posts.authorId))
@@ -102,6 +106,7 @@ export async function getFeedForCity(
       eq(postImages.postId, posts.id),
       eq(postImages.displayOrder, 0)
     ))
+    .leftJoin(ratingSummary, eq(ratingSummary.postId, posts.id))
     .where(and(...conditions))
     .orderBy(desc(posts.createdAt), desc(posts.id))
     .limit(fetchLimit)

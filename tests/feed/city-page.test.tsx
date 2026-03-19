@@ -41,6 +41,8 @@ const mockPosts = [
     startsAt: null,
     endsAt: null,
     firstImagePath: null,
+    avgRating: null,
+    reviewCount: null,
   },
   {
     id: 'post-2',
@@ -55,6 +57,8 @@ const mockPosts = [
     startsAt: new Date('2026-04-01T20:00:00Z'),
     endsAt: new Date('2026-04-01T23:00:00Z'),
     firstImagePath: null,
+    avgRating: null,
+    reviewCount: null,
   },
 ]
 

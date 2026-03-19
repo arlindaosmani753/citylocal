@@ -1,5 +1,6 @@
 import { formatDistanceToNow, format } from 'date-fns'
 import type { FeedPost } from '@/lib/db/queries/feed'
+import { RatingBadge } from '@/components/ratings/RatingBadge'
 
 const CATEGORY_LABELS: Record<string, string> = {
   restaurant: 'Restaurant',
@@ -37,6 +38,7 @@ export default function FeedCard({ post }: Props) {
       )}
       {post.authorUsername && <span>by {post.authorUsername}</span>}
       <time dateTime={post.createdAt.toISOString()}>{relativeTime}</time>
+      <RatingBadge avgRating={post.avgRating} reviewCount={post.reviewCount} />
     </article>
   )
 }
